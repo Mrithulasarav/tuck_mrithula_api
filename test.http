@@ -1,0 +1,10 @@
+### GET the current markdown
+GET http://127.0.0.1:5000/markdown
+
+### POST to update the markdown
+POST http://127.0.0.1:5000/markdown
+Content-Type: application/json
+
+{
+  "sentence": "This is a new sentence added to the markdown."
+}
