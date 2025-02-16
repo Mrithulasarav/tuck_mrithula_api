@@ -1,2 +1,6 @@
 # Flask API for Markdown Management
-This Flask API allows you to retrieve and update a markdown string.
+This Flask API allows you to retrieve and update a markdown string. You can use a GET request to fetch the current markdown and a POST request to append a new sentence to it. The updated markdown is saved to a file (markdown_storage.txt) so it persists even after restarting the server.
+
+To run the API locally, first ensure you have Python 3.x installed. Then, install the required dependencies by running pip install flask python-dotenv. Create a .env file in the project directory with the following content: MARKDOWN_FILE=markdown_storage.txt, GPT_OUTPUT_FILE=gpt_output.json, and FLASK_DEBUG=true. Place the gpt_output.json file in the same directory as app.py. Start the API by running python app.py. The API will be available at http://127.0.0.1:5000.
+
+To test the API, use curl or a similar tool. For example, to retrieve the current markdown, use curl http://127.0.0.1:5000/markdown. To update the markdown, send a POST request with a new sentence: curl -X POST http://127.0.0.1:5000/markdown -H "Content-Type: application/json" -d '{"sentence": "This is a new sentence."}'. The updated markdown will be saved to markdown_storage.txt. If you restart the server, the markdown will be loaded from this file, ensuring persistence.
